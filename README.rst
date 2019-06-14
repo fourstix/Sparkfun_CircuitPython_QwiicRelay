@@ -17,9 +17,9 @@ CircuitPython library for Sparkfun Qwiic Relay
 
 .. image:: https://cdn.sparkfun.com//assets/parts/1/3/4/5/1/15093-SparkFun_Qwiic_Single_Relay-01.jpg
     :target: https://www.sparkfun.com/products/15093
-    :alt: SparkFun Qwiic Relay (DEV-15168)
+    :alt: SparkFun Qwiic Relay (DEV-15093)
 
-`SparkFun Qwiic Relay (DEV-15168) <https://www.sparkfun.com/products/15168>`_
+`SparkFun Qwiic Relay (DEV-15093) <https://www.sparkfun.com/products/15093>`_
   
 
 
@@ -64,7 +64,7 @@ To install in a virtual environment in your current project:
 
 Usage Example
 =============
-* `Qwiic Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
+* `Qwiic Single Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
 * `CircuitPython on a Raspberry Pi <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux>`_ - Basic information on how to install CircuitPython on a Raspberry Pi.
 
 Contributing
