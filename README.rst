@@ -13,13 +13,14 @@ Coming Soon
     :target: https://travis-ci.com/fourstix/Sparkfun_CircuitPython_QwiicRelay
     :alt: Build Status
 
-CircuitPython library for Sparkfun Qwiic Relay
+CircuitPython library for Sparkfun Qwiic Relay.  This library is ported from examples
+at `SparkFun Qwiic Relay <https://github.com/sparkfun/SparkFun_Qwiic_Releay>`_
 
 .. image:: https://cdn.sparkfun.com//assets/parts/1/3/4/5/1/15093-SparkFun_Qwiic_Single_Relay-01.jpg
     :target: https://www.sparkfun.com/products/15093
-    :alt: SparkFun Qwiic Relay (DEV-15093)
+    :alt: SparkFun Qwiic Single Relay (COM-15093)
 
-`SparkFun Qwiic Relay (DEV-15093) <https://www.sparkfun.com/products/15093>`_
+`SparkFun Qwiic Single Relay (COM-15093) <https://www.sparkfun.com/products/15093>`_
   
 
 
@@ -28,20 +29,62 @@ Dependencies
 This driver depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
-* `Qwiic Relay Product Repository <https://github.com/sparkfun/Qwiic_Relay>`_
+* `Adafruit Bus Device <https://github.com/adafruit/Adafruit_CircuitPython_BusDevice>`_
+* `Qwiic Relay Hardware <https://github.com/sparkfun/Qwiic_Relay>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
 `the Adafruit library and driver bundle <https://github.com/adafruit/Adafruit_CircuitPython_Bundle>`_.
 
+Raspberry Pi Setup
+------------------
+   Adafruit has an excellent tutorial on `Installing CircuitPython Libraries on Raspberry Pi
+   <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi/>`_.
+ 
+Quick Start Summary:
+
+* Start with the latest version of Raspbian with Wifi configured.
+
+* Enable SSH, I2C and SPI.
+
+.. code-block:: shell
+
+    sudo raspi-config
+
+* Update your system to the latest version.
+
+.. code-block:: shell
+
+    sudo apt-get update
+    sudo apt-get upgrade
+
+* Update the python tools
+
+.. code-block:: shell
+
+    sudo pip3 install --upgrade setuptools
+
+(If pip3 is not installed, install it and rerun the command)
+
+.. code-block:: shell
+
+    sudo apt-get install python3-pip
+
+* Install the CircuitPython libraries
+
+.. code-block:: shell
+
+    pip3 install RPI.GPIO
+    pip3 install adafruit-blinka
+
 Installing from PyPI
 --------------------
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
-   If the library is not planned for PyPI, remove the entire 'Installing from PyPI' section.
-On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/sparkfun-circuitpython-qwiicrelay/>`_. To install for current user:
+   On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
+   PyPI <https://pypi.org/project/sparkfun-circuitpython-qwiicrelay/>`_.
+
+   Installing this library will also install the dependency adafruit-circuitpython-busdevice.
+
+Installing from PyPI
 
 .. code-block:: shell
 
@@ -64,8 +107,24 @@ To install in a virtual environment in your current project:
 
 Usage Example
 =============
-* `Qwiic Single Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
+* `Qwiic Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
 * `CircuitPython on a Raspberry Pi <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux>`_ - Basic information on how to install CircuitPython on a Raspberry Pi.
+* Code Example:
+
+ .. code-block:: shell
+
+     # import the CircuitPython board and busio libraries
+     import board
+     import busio
+
+     # Create bus object using the board's I2C port
+     i2c = busio.I2C(board.SCL, board.SDA)
+
+     relay = QwiicRelay(i2c)  # default address is 0x20
+
+     # For a different address use QwiicRelay(i2c, address)
+     # relay = QwiicJoystick(i2c, 0x21)
+
 
 Contributing
 ============

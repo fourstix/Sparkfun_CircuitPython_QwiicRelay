@@ -17,7 +17,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='adafruit-circuitpython-qwiicrelay',
+    name='sparkfun-circuitpython-qwiicrelay',
 
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
@@ -27,14 +27,15 @@ setup(
     long_description_content_type='text/x-rst',
 
     # The project's main homepage.
-    url='https://github.com/adafruit/Adafruit_CircuitPython_QwiicRelay',
+    url='https://github.com/fourstix/Sparkfun_CircuitPython_QwiicRelay',
 
     # Author details
-    author='Adafruit Industries',
-    author_email='circuitpython@adafruit.com',
+    author='Gaston Williams',
+    author_email='fourstix@gmail.com',
 
     install_requires=[
-        'Adafruit-Blinka'
+        'Adafruit-Blinka',
+        'adafruit-circuitpython-busdevice'
     ],
 
     # Choose your license
