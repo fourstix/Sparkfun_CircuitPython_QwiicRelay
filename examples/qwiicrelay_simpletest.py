@@ -13,7 +13,6 @@
  and print out the relay position.
 """
 
-from time import sleep
 import board
 import busio
 import sparkfun_qwiicrelay
@@ -22,7 +21,7 @@ import sparkfun_qwiicrelay
 i2c = busio.I2C(board.SCL, board.SDA)
 
 # Create relay object
-relay = Sparkfun_QwiicRelay(i2c)
+relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
 # Check if connected
 if relay.connected:
