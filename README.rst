@@ -9,12 +9,12 @@ Coming Soon
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.com/fourstix/Sparkfun_CircuitPython_QwiicRelay.svg?branch=master
+.. image:: https://travis-ci.org/fourstix/Sparkfun_CircuitPython_QwiicRelay.svg?branch=master
     :target: https://travis-ci.com/fourstix/Sparkfun_CircuitPython_QwiicRelay
     :alt: Build Status
 
-CircuitPython library for Sparkfun Qwiic Relay.  This library is ported from examples
-at `SparkFun Qwiic Relay <https://github.com/sparkfun/SparkFun_Qwiic_Releay>`_
+CircuitPython library for Sparkfun Qwiic Single Relay.  This library is ported from examples
+at `SparkFun Qwiic Single Relay <https://github.com/sparkfun/SparkFun_Qwiic_Releay>`_
 
 .. image:: https://cdn.sparkfun.com//assets/parts/1/3/4/5/1/15093-SparkFun_Qwiic_Single_Relay-01.jpg
     :target: https://www.sparkfun.com/products/15093
@@ -30,7 +30,7 @@ This driver depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
 * `Adafruit Bus Device <https://github.com/adafruit/Adafruit_CircuitPython_BusDevice>`_
-* `Qwiic Relay Hardware <https://github.com/sparkfun/Qwiic_Relay>`_
+* `Qwiic Single Relay Hardware <https://github.com/sparkfun/Qwiic_Relay>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
@@ -107,7 +107,7 @@ To install in a virtual environment in your current project:
 
 Usage Example
 =============
-* `Qwiic Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
+* `Qwiic Single Relay Hookup Guide <https://learn.sparkfun.com/tutorials/qwiic-single-relay-hookup-guide>`_ - The Arduino examples in the Hookup Guide are available for Python with this library
 * `CircuitPython on a Raspberry Pi <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux>`_ - Basic information on how to install CircuitPython on a Raspberry Pi.
 * Code Example:
 
@@ -123,7 +123,7 @@ Usage Example
      relay = QwiicRelay(i2c)  # default address is 0x20
 
      # For a different address use QwiicRelay(i2c, address)
-     # relay = QwiicJoystick(i2c, 0x21)
+     # relay = QwiicRelay(i2c, 0x21)
 
 
 Contributing
