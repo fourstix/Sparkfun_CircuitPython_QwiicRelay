@@ -4,16 +4,19 @@
 #  https://www.sparkfun.com/products/15093
 
 """
- Qwiic Relay Example 1 - example1_basic_control.py
+ Qwiic Relay Example 5 - example5_get_firmware_version.py
  Written by Gaston Williams, June 13th, 2019
  Based on Arduino code written by
- Kevin Kuwata @ SparkX, March 21, 2018
+ Kevin Kuwata @ SparkX, April 3, 2018
  The Qwiic Single Relay is an I2C controlled relay produced by sparkfun
 
- Example 1 - Basic Control:
- This program uses the Qwiic Relay CircuitPython Library to
- control the Qwiic Relay breakout over I2C and demonstrate
- basic functionality.
+ Example 5 - Get Firmware Version:
+ This program uses the Qwiic Relay CircuitPython Library to get the 
+ firmware version of Qwiic Single Relay breakout.  If using version prior
+ to (excluding) 1.0 the version number will be 25.5 or 26.5. Starting at
+ version 1.0, the relay  will respond with the correct firmware version.
+
+ Default Qwiic relay address is 0x18.
 """
 
 from time import sleep
@@ -27,7 +30,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 # Create relay object
 relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
-print('Qwicc Relay Example 1 Basic Control')
+print('Qwicc Relay Example 5 Get Firmware Version')
 
 # Check if connected
 if relay.connected:
@@ -40,9 +43,7 @@ print('Type Ctrl-C to exit program.')
 
 try:
     while True:
-        relay.relay_on()
-        sleep(2)
-        relay.relay_off()
+        print('Firmware version: ' + relay.version)
         sleep(2)
 
 except KeyboardInterrupt:

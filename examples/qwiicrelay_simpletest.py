@@ -22,8 +22,7 @@ import sparkfun_qwiicrelay
 i2c = busio.I2C(board.SCL, board.SDA)
 
 # Create joystick object
-relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c, debug=True
-)
+relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
 # Check if connected
 if relay.connected:
@@ -32,14 +31,16 @@ else:
     print('Relay does not appear to be connected. Please check wiring.')
     exit()
 
-    print('Relay status ', relay.status)
+# Print firmware version and current status
+print('Firmware version ' + relay.version)
+print('Relay status ', relay.status)
 
 # Turn the relay on and off
 print('Press Ctrl-C to exit program')
 while True:
-    relay.on()
+    relay.relay_on()
     print('Relay status ', relay.status)
     sleep(2)
-    relay.off()
+    relay.relay_off()
     print('Relay status ', relay.status)
     sleep(2)

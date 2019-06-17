@@ -33,16 +33,17 @@ Implementation Notes
 
 **Hardware:**
 
-.. todo:: Add links to any specific hardware product page(s), or category page(s). Use unordered list & hyperlink rST
-   inline format: "* `Link Text <url>`_"
+*  This is library is for the SparkFun Qwiic Single Relay.
+*  SparkFun sells these at its website: www.sparkfun.com
+*  Do you like this library? Help support SparkFun. Buy a board!
+   https://www.sparkfun.com/products/15093
 
 **Software and Dependencies:**
 
 * Adafruit CircuitPython firmware for the supported boards:
   https://github.com/adafruit/circuitpython/releases
 
-# * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
-# * Adafruit's Register library: https://github.com/adafruit/Adafruit_CircuitPython_Register
+* Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 """
 
 # imports
@@ -60,12 +61,10 @@ QWIIC_RELAY_ADDR = const(0x18) #default I2C Address
 # private constants
 _RELAY_OFF = const(0x00)
 _RELAY_ON = const(0x01)
-
-
-
 _RELAY_CHANGE_ADDRESS = const(0x03)
 _RELAY_VERSION = const(0x04)
 _RELAY_STATUS = const(0x05)
+
 _RELAY_NOTHING_NEW = const(0x99)
 
 # class
@@ -86,8 +85,7 @@ class Sparkfun_QwiicRelay:
         """Check to see of the relay is available.  Returns True if successful."""
         #Attempt a connection and see if we get an error
         try:
-            with self._device as device:
-                pass
+            self._read_command(_RELAY_STATUS, 1)
         except ValueError:
             return False
 
@@ -97,7 +95,7 @@ class Sparkfun_QwiicRelay:
     def version(self):
         """Return the version string for the Relay firmware."""
         #send command to get two bytes for the version string
-        version = self._command_read(_RELAY_VERSION, 2)
+        version = self._read_command(_RELAY_VERSION, 2)
         # Compute major and minor values from 16-bit version
         minor = version[0] & 0xFF
         major = version[1] & 0xFF
@@ -107,21 +105,21 @@ class Sparkfun_QwiicRelay:
     def status(self):
         """Return 1 if button pressed between reads. Button status is cleared."""
         #read button status (since last check)
-        status = self._command_read(_RELAY_STATUS, 1)
+        status = self._read_command(_RELAY_STATUS, 1)
 
         return status[0] & 0xFF
 
 
 # public functions
 
-    def on(self):
+    def relay_on(self):
         """Turn the relay on."""
-        self._command_write(_RELAY_ON)
+        self._write_command(_RELAY_ON)
 
 
-    def off(self):
+    def relay_off(self):
         """Turn the relay off."""
-        self._command_write(_RELAY_OFF)
+        self._write_command(_RELAY_OFF)
 
     def set_i2c_address(self, new_address):
         """Change the i2c address of Relay snd return True if successful."""
@@ -152,7 +150,7 @@ class Sparkfun_QwiicRelay:
 
 # private functions
 
-    def _command_read(self, command, count):
+    def _read_command(self, command, count):
         # Send a command then read count number of bytes.
         with self._device as device:
             device.write(bytes([command]), stop=False)
@@ -162,7 +160,7 @@ class Sparkfun_QwiicRelay:
                 print("$%02X => %s" % (command, [hex(i) for i in result]))
             return result
 
-    def _command_write(self, command):
+    def _write_command(self, command):
         # Send a byte command to the device
         with self._device as device:
             device.write(bytes([command & 0xFF]))
@@ -175,4 +173,3 @@ class Sparkfun_QwiicRelay:
             device.write(bytes([addr & 0xFF, value & 0xFF]))
             if self._debug:
                 print("$%02X <= 0x%02X" % (addr, value))
-
