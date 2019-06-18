@@ -2,7 +2,7 @@ Introduction
 ============
 
 .. image:: https://readthedocs.org/projects/sparkfun-circuitpython-qwiicrelay/badge/?version=latest
-    :target: https://circuitpython.readthedocs.io/projects/qwiicrelay/en/latest/
+    :target: https://sparkfun-circuitpython-qwiicrelay.readthedocs.io/en/latest/
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/discord/327254708534116352.svg
