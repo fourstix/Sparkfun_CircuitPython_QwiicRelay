@@ -13,7 +13,7 @@ cache:
 
 # if deployment to PyPi is desired, change 'DEPLOY_PYPI' to "true",
 env:
-  - DEPLOY_PYPI="false"
+  - DEPLOY_PYPI="true"
 
 deploy:
   - provider: releases
