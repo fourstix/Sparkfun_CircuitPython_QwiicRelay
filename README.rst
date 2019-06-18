@@ -10,7 +10,7 @@ Introduction
     :alt: Discord
 
 .. image:: https://travis-ci.org/fourstix/Sparkfun_CircuitPython_QwiicRelay.svg?branch=master
-    :target: https://travis-ci.com/fourstix/Sparkfun_CircuitPython_QwiicRelay
+    :target: https://travis-ci.org/fourstix/Sparkfun_CircuitPython_QwiicRelay
     :alt: Build Status
 
 CircuitPython library for Sparkfun Qwiic Single Relay.  This library is ported from examples
