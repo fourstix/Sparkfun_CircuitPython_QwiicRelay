@@ -14,7 +14,7 @@ Coming Soon
     :alt: Build Status
 
 CircuitPython library for Sparkfun Qwiic Single Relay.  This library is ported from examples
-at `SparkFun Qwiic Single Relay <https://github.com/sparkfun/SparkFun_Qwiic_Releay>`_
+at `SparkFun Qwiic Relay <https://github.com/sparkfun/Qwiic_Relay>`_
 
 .. image:: https://cdn.sparkfun.com//assets/parts/1/3/4/5/1/15093-SparkFun_Qwiic_Single_Relay-01.jpg
     :target: https://www.sparkfun.com/products/15093

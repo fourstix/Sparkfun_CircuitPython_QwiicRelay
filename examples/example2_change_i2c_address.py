@@ -5,19 +5,21 @@
 
 """
   Qwiic Relay Example 2 - example2_change_i2c_address.py
-  Written by Gaston Williams, June 13th, 2019
+  Written by Gaston Williams, June 19th, 2019
   Based on Arduino code written by
-  Wes Furuya @ SparkFun Electronics, February 5th, 2019
-  The Qwiic Relay is a I2C controlled analog relay
+  Kevin Kuwata @ SparkX, March 21, 2019
+  The Qwiic Single Relay is a I2C controlled relay
 
   Example 2 - Change I2C Address:
   This program uses the Qwiic Relay CircuitPython Library to change
   the I2C address for the device. You enter in the DEC value (8-119) or
-  HEX value (0x08-0x77) for the new Relay address.  After the address is
-  You can run i2c_scanner.py to validate the address after the change.
+  HEX value (0x08-0x77) for the new Relay address.  After the i2c address
+  is changed, you can run the example3_i2c_scanner.py program to validate
+  the i2c address.
 
   Syntax: python3 change_i2c_address.py [address]
-    where address is an optional address value in decimal or hex
+    where address is an optional current address value in decimal or hex
+
     The default value for the address is 24 [0x18]
 """
 

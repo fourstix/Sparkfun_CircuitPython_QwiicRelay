@@ -10,50 +10,66 @@
 
   Example 3 - I2C Scanner
   This progam uses CircuitPython BusIO library to find the current
-  address of the Qwiic Relay. It uses the I2C Scanner Example from
+  address of the Qwiic Relay. It uses information from
   https://learn.adafruit.com/circuitpython-basics-i2c-and-spi/i2c-devices
+  to manually scan for the Qwiic Single Relay.
+
+  Since the Qwiic Single Relay responds to any byte read request after it's
+  base address is written, i2c.scan()cannot be used.
+
+  This code manually scans addresses from 0x03 to 0x80, using only writes,
+  not writes and reads,to find i2c devices.
 
   The factory default address is 0x18.
 """
 
-import time
+from time import sleep
 
 import board
 import busio
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
-# For some reason i2c.scan() returns all addresses above the relay address
-# So we will manually look for the really address
+# Since i2c.scan() returns all addresses above the relay address,
+# we look for the relay address using only write requests.
 
-def test_i2c_address(addr):
-    "test an address to see if there's a device there"""
+def test_i2c_write(addr):
+    "Write to an address to see if there's an device there"""
     while not i2c.try_lock():
         pass
 
     try:
+        # Make an empty write request to an address
         i2c.writeto(addr, b'')
+        return True
+
     except OSError:
-        # some OS's dont like writing an empty bytesting...
-        # Retry by reading a byte
-        try:
-            result = bytearray(1)
-            i2c.readfrom_into(addr, result)
-        except OSError:
-                return False
-        finally:
-            i2c.unlock()
+        return False
 
-    return True
+    # Always unlock the i2c bus, before return
+    finally:
+        i2c.unlock()
 
 
-addresses = []
+print('Press Ctrl-C to exit program')
 
-for address in range(0x08, 0x80):
-    if(test_i2c_address(address)):
-        print('Found relay at address ' + hex(address))
-        exit()
+try:
+    while True:
+         found = []
 
-print('No I2C device found.')
+         # scan through all possible i2c addresses doi
+         for address in range(0x03, 0x80):
+             if(test_i2c_write(address)):
+                  found.append(address)
 
+         if(len(found) > 0):
+             print('I2C addresses found:',
+                   [hex(device_address) for device_address in found])
+         else:
+             print('No I2C device found.')
 
+         # wait a bit and scan again
+         sleep(5)
+
+except KeyboardInterrupt:
+    pass

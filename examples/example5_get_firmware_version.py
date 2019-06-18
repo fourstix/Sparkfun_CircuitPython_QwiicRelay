@@ -11,10 +11,10 @@
  The Qwiic Single Relay is an I2C controlled relay produced by sparkfun
 
  Example 5 - Get Firmware Version:
- This program uses the Qwiic Relay CircuitPython Library to get the 
+ This program uses the Qwiic Relay CircuitPython Library to get the
  firmware version of Qwiic Single Relay breakout.  If using version prior
- to (excluding) 1.0 the version number will be 25.5 or 26.5. Starting at
- version 1.0, the relay  will respond with the correct firmware version.
+ to version 1.0 the version number will be 25.5 or 26.5. Starting at
+ version 1.0, the relay will respond with the correct firmware version.
 
  Default Qwiic relay address is 0x18.
 """

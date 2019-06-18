@@ -5,16 +5,16 @@
 
 """
  Qwiic Relay Example 4 - example4_get_relay_status.py
- Written by Gaston Williams, June 13th, 2019
+ Written by Gaston Williams, June 18th, 2019
  Based on Arduino code written by
  Kevin Kuwata @ SparkX, March 21, 2018
  The Qwiic Single Relay is an I2C controlled relay produced by sparkfun
 
  Example 4 - Get Relay Status:
  This program uses the Qwiic Relay CircuitPython Library to
- get the current status of the Qwiic Relay. The relay responds 
+ get the current status of the Qwiic Relay. The relay responds
  with a 1 for on and a 0 for off.
- 
+
  Default Qwiic relay address is 0x18.
 """
 
