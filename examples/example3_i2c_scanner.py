@@ -59,7 +59,7 @@ try:
 
         # scan through all possible i2c addresses doi
         for address in range(0x03, 0x80):
-            if(test_i2c_write(address)):
+            if test_i2c_write(address):
                 found.append(address)
 
         if found:
