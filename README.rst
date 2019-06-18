@@ -1,4 +1,4 @@
-Coming Soon
+Introduction
 ============
 
 .. image:: https://readthedocs.org/projects/sparkfun-circuitpython-qwiicrelay/badge/?version=latest

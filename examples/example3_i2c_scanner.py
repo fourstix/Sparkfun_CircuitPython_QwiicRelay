@@ -55,21 +55,21 @@ print('Press Ctrl-C to exit program')
 
 try:
     while True:
-         found = []
+        found = []
 
-         # scan through all possible i2c addresses doi
-         for address in range(0x03, 0x80):
-             if(test_i2c_write(address)):
-                  found.append(address)
+        # scan through all possible i2c addresses doi
+        for address in range(0x03, 0x80):
+            if(test_i2c_write(address)):
+                found.append(address)
 
-         if(len(found) > 0):
-             print('I2C addresses found:',
-                   [hex(device_address) for device_address in found])
-         else:
-             print('No I2C device found.')
+        if found:
+            print('I2C addresses found:',
+                  [hex(device_address) for device_address in found])
+        else:
+            print('No I2C device found.')
 
-         # wait a bit and scan again
-         sleep(5)
+        # wait a bit and scan again
+        sleep(5)
 
 except KeyboardInterrupt:
     pass
