@@ -120,10 +120,10 @@ Usage Example
      # Create bus object using the board's I2C port
      i2c = busio.I2C(board.SCL, board.SDA)
 
-     relay = QwiicRelay(i2c)  # default address is 0x20
+     relay = QwiicRelay(i2c)  # default address is 0x18
 
      # For a different address use QwiicRelay(i2c, address)
-     # relay = QwiicRelay(i2c, 0x21)
+     # relay = QwiicRelay(i2c, 0x19)
 
 
 Contributing
