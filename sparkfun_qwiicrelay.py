@@ -109,6 +109,13 @@ class Sparkfun_QwiicRelay:
 
         return status[0] & 0xFF
 
+    @status.setter
+    def status(self, value):
+        """Setting the status True turns relay on, False turns relay off."""
+        if bool(value):
+            self._write_command(_RELAY_ON)
+        else:
+            self._write_command(_RELAY_OFF)
 
 # public functions
 

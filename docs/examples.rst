@@ -16,7 +16,7 @@ Ecamples
     :caption: examples/example1_basic_control.py
     :linenos:
 
-2. Change I2C Addres - Change the device I2C address.
+2. Change I2C Address - Change the device I2C address.
 
 .. literalinclude:: ../examples/example2_change_i2c_address.py
     :caption: example2_change_i2c_address.py
@@ -34,8 +34,15 @@ Ecamples
     :caption: examples/example4_get_relay_status.py
     :linenos:
 
-1. Firmware Version - Display the firmware version string.
+5. Firmware Version - Display the firmware version string.
 
 .. literalinclude:: ../examples/example5_get_firmware_version.py
     :caption: examples/example5_get_firmware_version.py
     :linenos:
+
+6. Set Relay Status - Set relay status to turn relay on and off.
+
+.. literalinclude:: ../examples/example6_set_relay_status.py
+    :caption: examples/example6_set_relay_status.py
+    :linenos:
+
