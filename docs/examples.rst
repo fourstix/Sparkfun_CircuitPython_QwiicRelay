@@ -7,7 +7,7 @@ Ensure your device works with this simple test.
     :caption: examples/qwiicrelay_simpletest.py
     :linenos:
 
-Ecamples
+Examples
 ---------
 
 1. Basic Control - Turn the relay on and off.
