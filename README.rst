@@ -154,6 +154,23 @@ Usage Example
     # For a different address use QwiicRelay(i2c, address)
     # relay = QwiicRelay(i2c, 0x19)
 
+Upgrading
+=========
+On supported GNU/Linux systems like the Raspberry Pi, you can upgrade the driver locally `from
+PyPI <https://pypi.org/project/Sparkfun-circuitpython-qwiicjoystick/>`_.
+
+To upgrade for current user:
+
+.. code-block:: shell
+
+    pip3 install --upgrade sparkfun-circuitpython-qwiicjoystick
+
+To upgrade system-wide (this may be required in some cases):
+
+.. code-block:: shell
+
+    sudo pip3 install --upgrade sparkfun-circuitpython-qwiicjoystick
+
 Contributing
 ============
 
