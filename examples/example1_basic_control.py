@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2021 Gaston Williams
+#
+# SPDX-License-Identifier: Unlicense
+
 #  This is example is for the SparkFun Qwiic Single Relay.
 #  SparkFun sells these at its website: www.sparkfun.com
 #  Do you like this library? Help support SparkFun. Buy a board!
@@ -15,14 +19,13 @@
  control the Qwiic Relay breakout over I2C and demonstrate
  basic functionality.
 """
-
+import sys
 from time import sleep
 import board
-import busio
 import sparkfun_qwiicrelay
 
 # Create bus object using our board's I2C port
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = board.I2C()
 
 # Create relay object
 relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
@@ -34,7 +37,7 @@ if relay.connected:
     print('Relay connected.')
 else:
     print('Relay does not appear to be connected. Please check wiring.')
-    exit()
+    sys.exit()
 
 print('Type Ctrl-C to exit program.')
 

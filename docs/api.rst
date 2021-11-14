@@ -5,4 +5,4 @@
 .. use this format as the module name: "adafruit_foo.foo"
 
 .. automodule:: sparkfun_qwiicrelay
-   :members:
+    :members:

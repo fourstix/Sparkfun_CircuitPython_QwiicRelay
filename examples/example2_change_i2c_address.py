@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2021 Gaston Williams
+#
+# SPDX-License-Identifier: Unlicense
+
 #  This is example is for the SparkFun Qwiic Single Relay.
 #  SparkFun sells these at its website: www.sparkfun.com
 #  Do you like this library? Help support SparkFun. Buy a board!
@@ -25,7 +29,6 @@
 
 import sys
 import board
-import busio
 import sparkfun_qwiicrelay
 
 # The default QwiicRelay i2c address is 0x18 (24)
@@ -49,8 +52,8 @@ if len(sys.argv) > 1:
 print('Current i2c address = ' + str(i2c_address)
       + ' [' + hex(i2c_address) + ']')
 
-# Create library object using our Bus I2C port
-i2c = busio.I2C(board.SCL, board.SDA)
+# Create busio object using our Board I2C port
+i2c = board.I2C()
 relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c, i2c_address)
 
 if relay.connected:
@@ -58,7 +61,7 @@ if relay.connected:
 else:
     # if we can't connecct, something is wrong so just quit
     print('Relay does not appear to be connected. Please check wiring.')
-    exit()
+    sys.exit()
 
 print('Address: ' + str(i2c_address) + ' [' + hex(i2c_address) + ']')
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021 Gaston Williams
+#
+# SPDX-License-Identifier: MIT
+
 # The MIT License (MIT)
 #
 # Copyright (c) 2019 Gaston Williams for Sparkfun
@@ -23,7 +27,7 @@
 `sparkfun_qwiicrelay`
 ================================================================================
 
-CircuitPython library for the Sparkfun QwiicRelay
+CircuitPython library for the Sparkfun Qwiic Relay
 
 
 * Author(s): Gaston Williams
@@ -48,6 +52,7 @@ Implementation Notes
 
 # imports
 
+# imports__version__ = "0.0.0-auto.0"
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/fourstix/Sparkfun_CircuitPython_QwiicRelay.git"
 
@@ -160,9 +165,8 @@ class Sparkfun_QwiicRelay:
     def _read_command(self, command, count):
         # Send a command then read count number of bytes.
         with self._device as device:
-            device.write(bytes([command]), stop=False)
             result = bytearray(count)
-            device.readinto(result)
+            device.write_then_readinto(bytes([command]), result)
             if self._debug:
                 print("$%02X => %s" % (command, [hex(i) for i in result]))
             return result
