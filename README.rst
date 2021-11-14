@@ -93,13 +93,13 @@ To install for current user:
 
 .. code-block:: shell
 
-    pip3 install Sparkfun-circuitpython-qwiicrelay
+    pip3 install sparkfun-circuitpython-qwiicrelay
 
 To install system-wide (this may be required in some cases):
 
 .. code-block:: shell
 
-    sudo pip3 install Sparkfun-circuitpython-qwiicrelay
+    sudo pip3 install sparkfun-circuitpython-qwiicrelay
 
 To install in a virtual environment in your current project:
 
@@ -108,7 +108,7 @@ To install in a virtual environment in your current project:
     mkdir project-name && cd project-name
     python3 -m venv .env
     source .env/bin/activate
-    pip3 install Sparkfun-circuitpython-qwiicrelay
+    pip3 install sparkfun-circuitpython-qwiicrelay
 
 
 
@@ -141,19 +141,19 @@ Usage Example
 * `CircuitPython on a Raspberry Pi <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux>`_ - Basic information on how to install CircuitPython on a Raspberry Pi.
 * Code Example:
 
- .. code-block:: shell
+.. code-block:: shell
 
-     # import the CircuitPython board and busio libraries
-     import board
-     import busio
+    # import the CircuitPython board and busio libraries
+    import board
+    import busio
 
-     # Create bus object using the board's I2C port
-     i2c = busio.I2C(board.SCL, board.SDA)
+    # Create bus object using the board's I2C port
+    i2c = busio.I2C(board.SCL, board.SDA)
 
-     relay = QwiicRelay(i2c)  # default address is 0x18
+    relay = QwiicRelay(i2c)  # default address is 0x18
 
-     # For a different address use QwiicRelay(i2c, address)
-     # relay = QwiicRelay(i2c, 0x19)
+    # For a different address use QwiicRelay(i2c, address)
+    # relay = QwiicRelay(i2c, 0x19)
 
 Contributing
 ============
