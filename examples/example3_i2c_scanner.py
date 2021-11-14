@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2019-2021 Gaston Williams
+#
+# SPDX-License-Identifier: Unlicense
+
 #  This is example is for the SparkFun Qwiic Single Relay.
 #  SparkFun sells these at its website: www.sparkfun.com
 #  Do you like this library? Help support SparkFun. Buy a board!
@@ -22,13 +26,11 @@
 
   The factory default address is 0x18.
 """
-
+import sys
 from time import sleep
-
 import board
-import busio
 
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = board.I2C()
 
 # Since i2c.scan() returns all addresses above the relay address,
 # we look for the relay address using only write requests.
