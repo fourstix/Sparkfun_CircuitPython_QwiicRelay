@@ -45,4 +45,3 @@ Examples
 .. literalinclude:: ../examples/example6_set_relay_status.py
     :caption: examples/example6_set_relay_status.py
     :linenos:
-

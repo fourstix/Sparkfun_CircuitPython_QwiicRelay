@@ -29,21 +29,21 @@ relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
 # Check if connected
 if relay.connected:
-    print('Relay connected.')
+    print("Relay connected.")
 else:
-    print('Relay does not appear to be connected. Please check wiring.')
+    print("Relay does not appear to be connected. Please check wiring.")
     sys.exit()
 
 # Print firmware version and current status
-print('Firmware version ' + relay.version)
-print('Relay status ', relay.status)
+print("Firmware version " + relay.version)
+print("Relay status ", relay.status)
 
 # Turn the relay on and off
-print('Press Ctrl-C to exit program')
+print("Press Ctrl-C to exit program")
 while True:
     relay.relay_on()
-    print('Relay status ', relay.status)
+    print("Relay status ", relay.status)
     sleep(2)
     relay.relay_off()
-    print('Relay status ', relay.status)
+    print("Relay status ", relay.status)
     sleep(2)

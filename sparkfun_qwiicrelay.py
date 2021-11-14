@@ -61,7 +61,7 @@ from micropython import const
 from adafruit_bus_device.i2c_device import I2CDevice
 
 # public constants
-QWIIC_RELAY_ADDR = const(0x18) #default I2C Address
+QWIIC_RELAY_ADDR = const(0x18)  # default I2C Address
 
 # private constants
 _RELAY_OFF = const(0x00)
@@ -79,16 +79,16 @@ class Sparkfun_QwiicRelay:
     def __init__(self, i2c, address=QWIIC_RELAY_ADDR, debug=False):
         """Initialize Qwiic Relay for i2c communication."""
         self._device = I2CDevice(i2c, address)
-        #save handle to i2c bus in case address is changed
+        # save handle to i2c bus in case address is changed
         self._i2c = i2c
         self._debug = debug
 
-# public properites
+    # public properites
 
     @property
     def connected(self):
         """Check to see of the relay is available.  Returns True if successful."""
-        #Attempt a connection and see if we get an error
+        # Attempt a connection and see if we get an error
         try:
             self._read_command(_RELAY_STATUS, 1)
         except ValueError:
@@ -99,17 +99,17 @@ class Sparkfun_QwiicRelay:
     @property
     def version(self):
         """Return the version string for the Relay firmware."""
-        #send command to get two bytes for the version string
+        # send command to get two bytes for the version string
         version = self._read_command(_RELAY_VERSION, 2)
         # Compute major and minor values from 16-bit version
         minor = version[0] & 0xFF
         major = version[1] & 0xFF
-        return 'v' + str(major) + '.' + str(minor)
+        return "v" + str(major) + "." + str(minor)
 
     @property
     def status(self):
         """Return 1 if button pressed between reads. Button status is cleared."""
-        #read button status (since last check)
+        # read button status (since last check)
         status = self._read_command(_RELAY_STATUS, 1)
 
         return status[0] & 0xFF
@@ -122,12 +122,11 @@ class Sparkfun_QwiicRelay:
         else:
             self._write_command(_RELAY_OFF)
 
-# public functions
+    # public functions
 
     def relay_on(self):
         """Turn the relay on."""
         self._write_command(_RELAY_ON)
-
 
     def relay_off(self):
         """Turn the relay off."""
@@ -136,31 +135,31 @@ class Sparkfun_QwiicRelay:
     def set_i2c_address(self, new_address):
         """Change the i2c address of Relay snd return True if successful."""
         # check range of new address
-        if (new_address < 8 or new_address > 119):
-            print('ERROR: Address outside 8-119 range')
+        if new_address < 8 or new_address > 119:
+            print("ERROR: Address outside 8-119 range")
             return False
         # write magic number 0x13 to lock register, to unlock address for update
         # self._write_register(_RELAY_I2C_LOCK, 0x13)
         # write new address
         self._write_register(_RELAY_CHANGE_ADDRESS, new_address)
 
-	# wait a second for relay to settle after change
+        # wait a second for relay to settle after change
         sleep(1)
 
         # try to re-create new i2c device at new address
         try:
             self._device = I2CDevice(self._i2c, new_address)
         except ValueError as err:
-            print('Address Change Failure')
+            print("Address Change Failure")
             print(err)
             return False
 
-        #if we made it here, everything went fine
+        # if we made it here, everything went fine
         return True
 
-# No i2c begin function is needed since I2Cdevice class takes care of that
+    # No i2c begin function is needed since I2Cdevice class takes care of that
 
-# private functions
+    # private functions
 
     def _read_command(self, command, count):
         # Send a command then read count number of bytes.

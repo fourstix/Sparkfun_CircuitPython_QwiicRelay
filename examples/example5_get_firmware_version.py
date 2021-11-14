@@ -33,20 +33,20 @@ i2c = board.I2C()
 # Create relay object
 relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
-print('Qwicc Relay Example 5 Get Firmware Version')
+print("Qwicc Relay Example 5 Get Firmware Version")
 
 # Check if connected
 if relay.connected:
-    print('Relay connected.')
+    print("Relay connected.")
 else:
-    print('Relay does not appear to be connected. Please check wiring.')
+    print("Relay does not appear to be connected. Please check wiring.")
     sys.exit()
 
-print('Type Ctrl-C to exit program.')
+print("Type Ctrl-C to exit program.")
 
 try:
     while True:
-        print('Firmware version: ' + relay.version)
+        print("Firmware version: " + relay.version)
         sleep(2)
 
 except KeyboardInterrupt:
