@@ -145,10 +145,9 @@ Usage Example
 
     # import the CircuitPython board and busio libraries
     import board
-    import busio
 
     # Create bus object using the board's I2C port
-    i2c = busio.I2C(board.SCL, board.SDA)
+    i2c = board.I2C()
 
     relay = QwiicRelay(i2c)  # default address is 0x18
 
