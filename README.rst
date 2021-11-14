@@ -28,7 +28,7 @@ at `SparkFun Qwiic Relay <https://github.com/sparkfun/Qwiic_Relay>`_
     :alt: SparkFun Qwiic Single Relay (COM-15093)
 
 `SparkFun Qwiic Single Relay (COM-15093) <https://www.sparkfun.com/products/15093>`_
-  
+
 
 
 Dependencies
@@ -48,7 +48,7 @@ or individual libraries can be installed using
 Raspberry Pi Setup
 ------------------
 Adafruit has an excellent tutorial on `Installing CircuitPython Libraries on Raspberry Pi <https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi/>`_.
- 
+
 Quick Start Summary:
 --------------------
 * Start with the latest version of Raspbian with Wifi configured.
@@ -202,15 +202,12 @@ Then run the build:
 
 License Information
 -----------------------
-This product is **open source**! 
+This product is **open source**!
 
-Please review the LICENSE.md file for license information. 
+Please review the LICENSE.md file for license information.
 
-Please use, reuse, and modify these files as you see fit. 
+Please use, reuse, and modify these files as you see fit.
 
 Please maintain the attributions to SparkFun Electronics and Adafruit and release any derivative under the same license.
 
 Distributed as-is; no warranty is given.
-
-
-

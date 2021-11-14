@@ -30,27 +30,27 @@ i2c = board.I2C()
 # Create relay object
 relay = sparkfun_qwiicrelay.Sparkfun_QwiicRelay(i2c)
 
-print('Qwiic Relay Example 6 Set Relay Status')
+print("Qwiic Relay Example 6 Set Relay Status")
 
 # Check if connected
 if relay.connected:
-    print('Relay connected.')
+    print("Relay connected.")
 else:
-    print('Relay does not appear to be connected. Please check wiring.')
+    print("Relay does not appear to be connected. Please check wiring.")
     sys.exit()
 
-print('Type Ctrl-C to exit program.')
+print("Type Ctrl-C to exit program.")
 
 try:
     while True:
         # Set status = 1/True is the same as relay.relay_on()
         relay.status = True
-        print('The relay status is', bool(relay.status))
+        print("The relay status is", bool(relay.status))
         sleep(2)
 
         # Set status = 0/False is the same as relay.relay_off()
         relay.status = False
-        print('The relay status is', bool(relay.status))
+        print("The relay status is", bool(relay.status))
         sleep(2)
 
 except KeyboardInterrupt:

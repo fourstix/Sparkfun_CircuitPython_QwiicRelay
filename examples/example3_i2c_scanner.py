@@ -35,14 +35,15 @@ i2c = board.I2C()
 # Since i2c.scan() returns all addresses above the relay address,
 # we look for the relay address using only write requests.
 
+
 def test_i2c_write(addr):
-    "Write to an address to see if there's an device there"""
+    "Write to an address to see if there's an device there" ""
     while not i2c.try_lock():
         pass
 
     try:
         # Make an empty write request to an address
-        i2c.writeto(addr, b'')
+        i2c.writeto(addr, b"")
         return True
 
     except OSError:
@@ -53,7 +54,7 @@ def test_i2c_write(addr):
         i2c.unlock()
 
 
-print('Press Ctrl-C to exit program')
+print("Press Ctrl-C to exit program")
 
 try:
     while True:
@@ -65,10 +66,12 @@ try:
                 found.append(address)
 
         if found:
-            print('I2C addresses found:',
-                  [hex(device_address) for device_address in found])
+            print(
+                "I2C addresses found:",
+                [hex(device_address) for device_address in found],
+            )
         else:
-            print('No I2C device found.')
+            print("No I2C device found.")
 
         # wait a bit and scan again
         sleep(5)
