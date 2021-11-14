@@ -164,8 +164,11 @@ class Sparkfun_QwiicRelay:
     def _read_command(self, command, count):
         # Send a command then read count number of bytes.
         with self._device as device:
+            device.write(bytes([command]))
             result = bytearray(count)
-            device.write_then_readinto(bytes([command]), result)
+            device.readinto(result)
+            # write_then_readinto function does not see to work
+            # device.write_then_readinto(bytes([command]), result)
             if self._debug:
                 print("$%02X => %s" % (command, [hex(i) for i in result]))
             return result
